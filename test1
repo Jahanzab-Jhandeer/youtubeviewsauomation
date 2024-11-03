@@ -1,0 +1,60 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class FirstTest {
+
+    WebDriver driver;
+
+    @Test
+    public void setup() throws InterruptedException {
+
+        WebDriverManager.chromiumdriver().setup();
+            driver = new ChromeDriver();
+            //driver.manage().window().maximize();
+            driver.get("https://www.youtube.com/");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            WebElement channelhandle = driver.findElement(By.name("search_query"));
+            channelhandle.sendKeys("@jahanzebjhandeer955");
+            channelhandle.submit();
+        driver.findElement(By.id("text")).click();
+        // Adding a delay
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//div[@class='yt-tab-shape-wiz__tab' and text()='Videos']")).click();
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//yt-formatted-string[@id='video-title' and @class='style-scope ytd-rich-grid-media' and text()='vechiles 001']")).click();
+        Thread.sleep(10000);
+        driver.navigate().back();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//yt-formatted-string[@id='video-title' and @class='style-scope ytd-rich-grid-media' and text()='OLD CARS 004']")).click();
+        Thread.sleep(10000);
+        driver.navigate().back();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//yt-formatted-string[@id='video-title' and @class='style-scope ytd-rich-grid-media' and text()='OLD CARS 003']")).click();
+        Thread.sleep(10000);
+        driver.navigate().back();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//yt-formatted-string[@id='video-title' and @class='style-scope ytd-rich-grid-media' and text()='OLD CARS 002']")).click();
+        Thread.sleep(10000);
+        driver.navigate().back();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//yt-formatted-string[@id='video-title' and @class='style-scope ytd-rich-grid-media' and text()='OLD CARS 001']")).click();
+        Thread.sleep(10000);
+        driver.navigate().back();
+        Thread.sleep(5000);
+        driver.quit();
+
+
+    }
+    }
